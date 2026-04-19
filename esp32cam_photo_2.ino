@@ -116,7 +116,7 @@ void loop() {
 
     if (digitalRead(PIR_PIN) == HIGH) {
 
-      Serial.println("Motion detected → recording 10s");
+      Serial.println("Motion detected: recording 10s");
 
       recording = true;
       recordStart = millis();
