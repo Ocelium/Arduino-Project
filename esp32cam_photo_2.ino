@@ -110,7 +110,7 @@ void loop() {
     bool motion = true;
 
   //  detect motion START (edge trigger)
-  if (motion == true && !lastMotion && !recording) {
+  if (motion == true && motion != lastMotion && motion != recording) {
 
     delay(50); // stability check
 
