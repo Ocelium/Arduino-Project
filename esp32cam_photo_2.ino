@@ -106,7 +106,8 @@ void setup() {
 
 void loop() {
 
-  bool motion = digitalRead(PIR_PIN);
+  if digitalRead(PIR_PIN) == high;
+    bool motion = true;
 
   //  detect motion START (edge trigger)
   if (motion == HIGH && !lastMotion && !recording) {
