@@ -1,0 +1,26 @@
+#define PIR_PIN 2
+#define ESP_TRIGGER 8
+
+unsigned long lastShot = 0;
+const unsigned long cooldown = 5000;
+
+void setup() {
+  pinMode(PIR_PIN, INPUT);
+  pinMode(ESP_TRIGGER, OUTPUT);
+  digitalWrite(ESP_TRIGGER, LOW);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int motion = digitalRead(PIR_PIN);
+
+  if (motion == HIGH && millis() - lastShot > cooldown) {
+    Serial.println("Motion detected");
+
+    digitalWrite(ESP_TRIGGER, HIGH);
+    delay(500);
+    digitalWrite(ESP_TRIGGER, LOW);
+
+    lastShot = millis();
+  }
+}
